@@ -1,0 +1,6 @@
+.env
+__pycache__/
+.streamlit/.env
+credentials.json
+token.json
+__pycache__/
