@@ -1,29 +1,22 @@
-# ⚡ FocusFlow: Personal AI Chief of Staff
+🚀 Running the Agent
+To launch the FocusFlow dashboard, use the Python launcher command. This method is recommended for Windows users to ensure the Streamlit module is called from the correct Python environment.
 
-FocusFlow is an intelligent personal assistant agent that bridges the gap between unstructured life data (Gmail/Calendar) and structured productivity tools (Google Sheets). It uses LLM reasoning to synthesize emails and events into a prioritized, actionable dashboard.
+1. Standard Execution
+Open your terminal in the project root and run:
 
-## 🚀 Core Features
-* **Deep Life-Data Sync**: Scans Gmail and Google Calendar for critical commitments, interviews, and orders.
-* **Intelligent Extraction**: Uses Gemini 2.5 Flash to identify purchase confirmations (Temu/Amazon) and upcoming payments.
-* **Financial Consolidation**: Automatically groups fragmented lottery/gambling winnings into a single "Net Position" line item.
-* **Master Log Integration**: Syncs the daily dashboard to a specific Google Drive folder, appending a new timestamped tab to a master spreadsheet.
-* **Deterministic Sorting**: Implements Python-level post-processing to ensure data is strictly sorted in descending order by date.
-* **Real-time Querying**: A conversational agent that allows users to ask natural language questions about their fetched data.
+Bash
+py -m streamlit run app.py
+2. Execution with Script Arguments
+If you need to pass specific flags to your agent (e.g., to run in headless mode for a server), use:
 
-## 🛠️ Tech Stack
-* **Frontend**: Streamlit
-* **AI Engine**: Google Gemini 2.5 Flash
-* **APIs**: Google Gmail API, Google Calendar API, Google Sheets API, Google Drive API
-* **Data Handling**: Pandas & Regex for data normalization
+Bash
+py -m streamlit run app.py --server.headless true
+3. What Happens Next?
+Local Server: Streamlit will start a local web server (typically at http://localhost:8501).
 
-## 📋 Prerequisites
-* Python 3.10+
-* A Google Cloud Project with Gmail, Sheets, Drive, and Calendar APIs enabled.
-* `credentials.json` from your Google Cloud Console.
+Authentication: On your first run, a browser window will prompt you to authorize FocusFlow to access your Google Gmail and Calendar data.
 
-## ⚙️ Installation & Setup
+Token Generation: After authorization, a token.json file will appear in your project folder. This stores your session so you don't have to log in every time.
 
-1. **Clone the repository**:
-   ```bash
-   git clone [https://github.com/prashanth0686/focusflow_agent.git](https://github.com/prashanth0686/focusflow_agent.git)
-   cd focusflow_agent
+💡 PM Troubleshooting Tip: Why use py -m?
+As a Product Manager, you might handle multiple environments. Using the py -m prefix (the Python launcher) explicitly tells Windows to find the streamlit library inside the Python installation. This avoids the common " 'streamlit' is not recognized" error that happens when the Streamlit scripts folder isn't in your System PATH.
